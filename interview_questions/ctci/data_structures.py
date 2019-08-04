@@ -2,6 +2,15 @@ from __future__ import annotations
 import os
 from typing import Any
 
+'''
+Note: run 
+
+export PYTHONHASHSEED=0
+
+before running to get deterministic results
+'''
+
+
 class Node(object):
 
     def __init__(self, data: Any=None, next_node: Node=None) -> None:
@@ -84,8 +93,7 @@ class HashTable:
 
     def hashing_function(self, key: str):
         '''
-        Assumes keys are strings, values are strings
-        Uses built in `hash` function from Python
+        Assumes keys are strings
         '''
         return hash(key) % self.size
 
