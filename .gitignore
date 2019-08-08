@@ -3,3 +3,4 @@
 *.p
 *.txt
 *.vscode/
+*.DS_Store
