@@ -115,6 +115,65 @@ class HashTable:
         return "[{}]".format(", ".join(map(str, table_list)))
         
 
-if __name__=="__main__":
-    pass
+class DynamicArray(object): 
+    ''' 
+    DYNAMIC ARRAY CLASS (Similar to Python List) 
+    '''
     
+    def __init__(self): 
+        self.n = 0 # Count actual elements (Default is 0) 
+        self.capacity = 1 # Default Capacity 
+        self.arr = self.make_array(self.capacity) 
+        
+    def __len__(self) -> int: 
+        """ 
+        Return number of elements sorted in array 
+        """
+        return self.n 
+    
+    def __getitem__(self, i: Any): 
+        """ 
+        Return element at index i 
+        """
+        if not 0 <= i <self.n: 
+            # Check it k index is in bounds of array 
+            return IndexError('I is out of bounds !')  
+        
+        return self.arr[i] # Retrieve from the array at index k 
+        
+    def append(self, ele: Any): 
+        """ 
+        Add element to end of the array 
+        """
+        if self.n == self.capacity: 
+            # Double capacity if not enough room 
+            self._resize(2 * self.capacity)  
+        
+        self.arr[self.n] = ele # Set self.n index to element 
+        self.n += 1
+        
+    def _resize(self, new_cap: int): 
+        """ 
+        Resize internal array to capacity new_cap 
+        """
+        
+        big = self.make_array(new_cap) # New bigger array 
+        
+        for i in range(self.n): # Reference all existing values 
+            big[i] = self.arr[i] 
+            
+        self.arr = big # Call A the new bigger array 
+        self.capacity = new_cap # Reset the capacity 
+        
+    def make_array(self, new_cap: int): 
+        """ 
+        Returns a new array with new_cap capacity 
+        """
+        return new_cap * [0]
+
+    def __repr__(self) -> str:
+        return str(self.arr)
+
+if __name__=="__main__":
+    pass              
+        
