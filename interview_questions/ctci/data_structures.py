@@ -1,6 +1,5 @@
-from __future__ import annotations
 import os
-from typing import Any
+from typing import Any, List
 
 '''
 Note: run 
@@ -13,17 +12,17 @@ before running to get deterministic results
 
 class Node(object):
 
-    def __init__(self, data: Any=None, next_node: Node=None) -> None:
+    def __init__(self, data: Any=None, next_node: 'Node'=None) -> None:
         self.data = data
         self.next_node = next_node
 
     def get_data(self) -> Any:
         return self.data
 
-    def get_next(self) -> Node:
+    def get_next(self) -> 'Node':
         return self.next_node
 
-    def set_next(self, new_next: Node) -> None:
+    def set_next(self, new_next: 'Node') -> None:
         self.next_node = new_next
 
     def __repr__(self) -> str:
@@ -174,6 +173,23 @@ class DynamicArray(object):
     def __repr__(self) -> str:
         return str(self.arr)
 
-if __name__=="__main__":
-    pass              
+
+class StringBuilder(object): 
+    ''' 
+    StringBuilder class that creates a single long string from a list of strings.
+    '''
+    
+    def __init__(self): 
+        self.arr = DynamicArray() 
         
+    def build_string(self, in_list: List[str]):
+        for s in in_list:
+            
+            self.arr.append(s)
+
+        return ' '.join(self.arr.arr) # TODO: use "getter" heres
+
+
+if __name__=="__main__":
+    L = ['This', 'is', 'a', 'sentence.']
+    print(StringBuilder().build_string(L)) 
