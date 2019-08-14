@@ -23,7 +23,6 @@ def is_permuation(str1: str, str2: str) -> bool:
     return True
 
 
-
 if __name__=="__main__":
     S1 = 'abcede'
     S2 = 'abced'
