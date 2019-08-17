@@ -1,3 +1,6 @@
+import sys
+sys.path.append('..') # allow import of code from one directory level up
+
 from data_structures import Stack
 
 def divide_by_base(decimal_number: int,

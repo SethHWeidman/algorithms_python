@@ -1,3 +1,6 @@
+import sys
+sys.path.append('..') # allow import of code from one directory level up
+
 from string import ascii_uppercase          
 from data_structures import Stack
 
