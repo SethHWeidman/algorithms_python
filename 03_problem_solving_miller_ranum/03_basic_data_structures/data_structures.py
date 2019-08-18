@@ -43,6 +43,32 @@ class Queue:
         return "Queue(" + str(self.items) + ")"
 
 
+class Deque:
+    def __init__(self) -> None:
+        self.items = []
+
+    def is_empty(self) -> bool:
+        return self.items == []
+
+    def add_front(self, item: Any) -> None:
+        self.items.append(item)
+
+    def add_rear(self, item: Any) -> None:
+        self.items.insert(0, item)
+
+    def remove_front(self) -> Any:
+        self.items.pop()
+
+    def remove_rear(self) -> Any:
+        self.items.pop(0)        
+
+    def size(self) -> int:
+        return len(self.items)
+
+    def __repr__(self):
+        return "Deque(" + str(self.items) + ")"        
+
+
 if __name__ == '__main__':
     # s = Stack()
     # print(s.isEmpty())
@@ -57,10 +83,21 @@ if __name__ == '__main__':
     # print(s.pop())
     # print(s.size())
 
-    q = Queue()
-    print(q.isEmpty())
-    print(q.enqueue('dog'))
-    print(q.enqueue(4))
-    print(q.dequeue())    
-    q = Queue()
-    print(q.isEmpty())
+    # q = Queue()
+    # print(q.isEmpty())
+    # print(q.enqueue('dog'))
+    # print(q.enqueue(4))
+    # print(q.dequeue())    
+    # q = Queue()
+    # print(q.isEmpty())
+
+    d = Deque()
+    print(d.add_rear(4))
+    print(d.add_rear('dog'))
+    print(d.add_front('cat'))
+    print(d.add_front(True))    
+    print(d.size())
+    print(d.is_empty())    
+    print(d.add_rear(8.4))
+    print(d.remove_rear())
+    print(d.remove_front())    
