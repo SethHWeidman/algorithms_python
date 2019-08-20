@@ -2,6 +2,7 @@ from string import ascii_letters
 
 def urlify(in_str: str, true_length: int) -> str:
     '''
+    Performs "URLification"
     Assumes in_str has only letters and spaces
     '''
     orig_str_ind = 0

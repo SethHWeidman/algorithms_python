@@ -1,8 +1,6 @@
-import math
-
 def string_one_away(str1: str, str2: str) -> bool:
     '''
-    Assumes in_str has only letters and spaces
+    Checks if strings are "one edit" away from one another
     '''
 
     def string_one_edit_away(str1: str, str2: str):
@@ -41,7 +39,8 @@ def string_one_away(str1: str, str2: str) -> bool:
 
 def string_one_away_2(str1: str, str2: str) -> bool:
     '''
-    Assumes in_str has only letters and spaces
+    Checks if strings are "one edit" away from one another
+    More concise, clever than prior method, but less understandable
     '''
     if abs(len(str1) - len(str2)) > 1:
         return False

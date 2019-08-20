@@ -3,7 +3,7 @@ from collections import Counter
 
 def palindrome_permutation(in_str: str) -> bool:
     '''
-    Assumes in_str has only letters and spaces
+    Checks if a string is a permutation of a palindrome
     '''
     counter = {}
     list_str = [char.lower() for char in in_str]
@@ -28,7 +28,8 @@ def palindrome_permutation(in_str: str) -> bool:
 
 def palindrome_permutation_counter(in_str: str) -> bool:
     '''
-    Assumes in_str has only letters and spaces
+    Checks if a string is a permutation of a palindrome
+    Uses collections.Counter
     '''
     counter = Counter()
     list_str = [char.lower() for char in in_str]
@@ -50,7 +51,9 @@ def palindrome_permutation_counter(in_str: str) -> bool:
 
 def palindrome_permutation_count_ongoing(in_str: str) -> bool:
     '''
-    Assumes in_str has only letters and spaces
+    Checks if a string is a permutation of a palindrome
+    Uses collections.Counter
+    Checks as we iterate through the string, rather than just at the end
     '''
     counter = Counter()
     count_odd = 0
@@ -70,7 +73,8 @@ def palindrome_permutation_count_ongoing(in_str: str) -> bool:
 
 def palindrome_permutation_bit_vector(in_str: str) -> bool:
     '''
-    Assumes in_str has only letters and spaces
+    Checks if a string is a permutation of a palindrome
+    Uses the binary representation of a single int to store the data 
     '''
 
     def _create_bit_vector(in_str: str) -> int:
