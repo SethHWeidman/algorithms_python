@@ -57,16 +57,150 @@ class Deque:
         self.items.insert(0, item)
 
     def remove_front(self) -> Any:
-        self.items.pop()
+        return self.items.pop()
 
     def remove_rear(self) -> Any:
-        self.items.pop(0)        
+        return self.items.pop(0)        
 
     def size(self) -> int:
         return len(self.items)
 
     def __repr__(self):
         return "Deque(" + str(self.items) + ")"        
+
+
+class Node:
+    def __init__(self, data: Any) -> None:
+        self.data = data
+        self.next: 'Node' = None
+
+    def get_data(self) -> Any:
+        return self.data
+
+    def get_next(self) -> 'Node':
+        return self.next
+
+    def set_data(self, data: Any) -> None:
+        self.data = data
+
+    def set_next(self, next: 'Node') -> None:
+        self.next = next
+
+    def __repr__(self):
+        return "Node(" + str(self.data) + ")"  
+
+
+class UnorderedList:
+    def __init__(self) -> None:
+        self.head: Node = None
+
+    def is_empty(self) -> bool:
+        return self.head == None
+
+    def add(self, item: Any) -> None:
+        temp = Node(item)
+        temp.set_next(self.head)
+        self.head = temp
+
+    def length(self) -> int:
+        count = 0
+        current_node = self.head
+
+        while current_node != None:
+            count += 1
+            current_node = current_node.get_next()
+
+        return count
+
+    def search(self, item: Any) -> bool:
+        current_node = self.head
+        found = False
+
+        while not found and current_node != None:
+            if current_node.get_data() == item:
+                found = True
+            else:
+                current_node = current_node.get_next()
+
+        return found
+
+    def remove(self, item: Any) -> None:
+        current_node = self.head
+        previous_node = None
+        found = False
+
+        while not found:
+            if current_node.get_data() == item:
+                found = True
+            else:
+                previous_node = current_node
+                current_node = current_node.get_next()
+
+        if previous_node == None:
+            self.head = current_node.get_next()
+        else:
+            previous_node.set_next(current_node.get_next())
+
+
+class OrderedList(UnorderedList):
+
+    def __init__(self) -> None:
+        self.head: Node = None
+
+    def is_empty(self) -> bool:
+        return self.head == None
+
+    def add(self, item: Any) -> None:
+        temp = Node(item)
+        temp.set_next(self.head)
+        self.head = temp
+
+    def length(self) -> int:
+        count = 0
+        current_node = self.head
+
+        while current_node != None:
+            count += 1
+            current_node = current_node.get_next()
+
+        return count
+
+    def search(self, item: Any) -> bool:
+        # Assumes the list is in increasing order, starting with head
+        current_node = self.head
+        found = False
+        stop = False
+
+        while current_node != None and not found and not stop:
+            if current_node.get_data() == item:
+                found = True
+            else:
+                if current_node.get_data() > item:
+                    stop = True
+                else:
+                    current_node = current_node.get_next()
+
+        return found
+
+    def add(self, item: Any) -> None:
+        current_node = self.head
+        previous_node = None
+        stop = False
+
+        while current_node != None and not stop:
+            if current_node.get_data() > item:
+                stop = True
+            else:
+                previous_node = current_node
+                current_node = current_node.get_next()
+
+        temp = Node(item)
+        if previous_node == None:
+            temp.set_next(self.head)
+            self.head = temp
+        else:
+            temp.set_next(current_node)
+            previous_node.set_next(temp)
 
 
 if __name__ == '__main__':
@@ -91,13 +225,24 @@ if __name__ == '__main__':
     # q = Queue()
     # print(q.isEmpty())
 
-    d = Deque()
-    print(d.add_rear(4))
-    print(d.add_rear('dog'))
-    print(d.add_front('cat'))
-    print(d.add_front(True))    
-    print(d.size())
-    print(d.is_empty())    
-    print(d.add_rear(8.4))
-    print(d.remove_rear())
-    print(d.remove_front())    
+    # d = Deque()
+    # print(d.add_rear(4))
+    # print(d.add_rear('dog'))
+    # print(d.add_front('cat'))
+    # print(d.add_front(True))    
+    # print(d.size())
+    # print(d.is_empty())    
+    # print(d.add_rear(8.4))
+    # print(d.remove_rear())
+    # print(d.remove_front())    
+
+    ul = UnorderedList()
+    print(ul.add(31))
+    print(ul.add(77))
+    print(ul.add(17))
+    print(ul.add(93))    
+    print(ul.add(26))
+    print(ul.add(54))
+
+    print(ul.length())
+    print(ul.search(17))    
