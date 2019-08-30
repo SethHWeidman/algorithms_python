@@ -145,25 +145,7 @@ class UnorderedList:
 class OrderedList(UnorderedList):
 
     def __init__(self) -> None:
-        self.head: Node = None
-
-    def is_empty(self) -> bool:
-        return self.head == None
-
-    def add(self, item: Any) -> None:
-        temp = Node(item)
-        temp.set_next(self.head)
-        self.head = temp
-
-    def length(self) -> int:
-        count = 0
-        current_node = self.head
-
-        while current_node != None:
-            count += 1
-            current_node = current_node.get_next()
-
-        return count
+        UnorderedList.__init__(self)
 
     def search(self, item: Any) -> bool:
         # Assumes the list is in increasing order, starting with head
