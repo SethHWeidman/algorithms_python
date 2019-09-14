@@ -23,13 +23,15 @@ class Node:
 
 class UnorderedList:
     '''
-    Unordered list (items are not orderded)
+    Unordered list (items are not sorted)
     Every element added:
         (self.head = old_head)
         Old head becomes "next" of new element. (new.next = old_head))
         Becomes head (new == self.head)
+
+        Head points to next.
+        Last element has no "next".
     
-    In some sense 
     '''
     def __init__(self) -> None:
         self.head: Node = None
@@ -45,7 +47,7 @@ class UnorderedList:
 
     def add_to_tail(self, item: Any) -> None:
         temp = Node(item)
-        temp_last = self.head()
+        temp_last = self.head
         while temp_last.get_next():
             temp_last = temp_last.get_next()
         temp_last.set_next(temp)
@@ -88,3 +90,12 @@ class UnorderedList:
             self.head = current_node.get_next()
         else:
             previous_node.set_next(current_node.get_next())
+
+if __name__=='__main__':
+    u = UnorderedList()
+    u.add(3)
+    print(u.head)
+    u.add(4)
+    print(u.head)
+    u.add_to_tail(5)
+    print(u.head)
