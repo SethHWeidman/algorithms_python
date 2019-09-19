@@ -1,7 +1,8 @@
 from typing import Any
 
+
 class Node:
-    def __init__(self, data: Any) -> None:
+    def __init__(self, data: Any = None) -> None:
         self.data = data
         self.next: 'Node' = None
 
@@ -91,7 +92,16 @@ class UnorderedList:
         else:
             previous_node.set_next(current_node.get_next())
 
-if __name__=='__main__':
+    def __repr__(self) -> str:
+        out = [self.head]
+        temp_last = self.head
+        while temp_last.get_next():
+            temp_last = temp_last.get_next()
+            out.append(temp_last)
+        return "head -> [" + ' '.join([str(x) for x in out]) + "]"
+
+
+if __name__ == '__main__':
     u = UnorderedList()
     u.add(3)
     print(u.head)
@@ -99,3 +109,8 @@ if __name__=='__main__':
     print(u.head)
     u.add_to_tail(5)
     print(u.head)
+    print(u)
+    u.remove(4)
+    print(u)
+    print(u.search(5))
+    print(u.search(4))
