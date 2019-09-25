@@ -19,7 +19,7 @@ class Node:
         self.next = next
 
     def __repr__(self):
-        return "Node(" + str(self.data) + ")"  
+        return "Node(" + str(self.data) + ")"
 
 
 class UnorderedList:
@@ -32,7 +32,7 @@ class UnorderedList:
 
         Head points to next.
         Last element has no "next".
-    
+
     '''
     def __init__(self) -> None:
         self.head: Node = None
@@ -76,6 +76,9 @@ class UnorderedList:
         return found
 
     def remove(self, item: Any) -> None:
+        '''
+        Note: item must be a *value* not a "Node"
+        '''
         current_node = self.head
         previous_node = None
         found = False
@@ -87,7 +90,7 @@ class UnorderedList:
                 previous_node = current_node
                 current_node = current_node.get_next()
 
-        if previous_node == None:
+        if previous_node is None:
             self.head = current_node.get_next()
         else:
             previous_node.set_next(current_node.get_next())
