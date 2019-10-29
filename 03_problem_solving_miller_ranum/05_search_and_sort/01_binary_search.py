@@ -18,10 +18,10 @@ def binary_search(a_list: List[Any], item: Any) -> bool:
                 last = midpoint - 1
             else:
                 first = midpoint + 1
-    
+
     return found
 
 
 if __name__ == '__main__':
     print(binary_search([1,2,3], 3))
-    print(binary_search([1,2,3], 4))    
+    print(binary_search([1,2,3], 4))
