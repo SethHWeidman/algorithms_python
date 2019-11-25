@@ -7,17 +7,13 @@ class HashTable(object):
         self.slots = [None] * self.size
         self.data = [None] * self.size
 
-    def hash_function(self, 
-                      key: int) -> int:
+    def hash_function(self, key: int) -> int:
         return key % self.size
 
-    def rehash(self, 
-               old_hash: int) -> int:
+    def rehash(self, old_hash: int) -> int:
         return (old_hash + 1) % self.size
 
-    def put(self, 
-            key: int, 
-            data: Any) -> None:
+    def put(self, key: int, data: Any) -> None:
         hash_value = self.hash_function(key)
 
         if not self.slots[hash_value]:
@@ -40,9 +36,9 @@ class HashTable(object):
                     self.data[next_slot] = data
 
     def get(self, key: int) -> Any:
-        '''
+        """
         Returns None if key not in Hash table
-        '''
+        """
         start_slot = self.hash_function(key)
 
         data = None
@@ -57,7 +53,7 @@ class HashTable(object):
             else:
                 position = self.rehash(position)
                 if position == start_slot:
-                    stop = True 
+                    stop = True
                 # we have gone through the entire hash table at this point
         return data
 
@@ -67,17 +63,18 @@ class HashTable(object):
     def __setitem__(self, key: int, data: Any) -> None:
         self.put(key, data)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     h = HashTable()
-    h[54] = 'cat'
-    h[26] = 'dog'
-    h[93] = 'lion'
-    h[17] = 'tiger'
-    h[77] = 'bird'
-    h[31] = 'cow'
-    h[44] = 'goat'
-    h[55] = 'pig'
-    h[20] = 'chicken'
+    h[54] = "cat"
+    h[26] = "dog"
+    h[93] = "lion"
+    h[17] = "tiger"
+    h[77] = "bird"
+    h[31] = "cow"
+    h[44] = "goat"
+    h[55] = "pig"
+    h[20] = "chicken"
 
     print(h.slots)
 
@@ -87,7 +84,7 @@ if __name__=="__main__":
 
     print(h[17])
 
-    h[20] = 'duck'
+    h[20] = "duck"
     print(h[20])
 
     print(h.data)

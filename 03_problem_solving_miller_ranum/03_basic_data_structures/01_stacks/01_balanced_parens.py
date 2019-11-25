@@ -1,7 +1,9 @@
 import sys
-sys.path.append('..') # allow import of code from one directory level up
+
+sys.path.append("..")  # allow import of code from one directory level up
 
 from data_structures import Stack
+
 
 def paren_checker(symbols: str) -> bool:
     s = Stack()
@@ -9,7 +11,7 @@ def paren_checker(symbols: str) -> bool:
     index = 0
     while index < len(symbols) and balanced:
         symbol = symbols[index]
-        if symbol == '(':
+        if symbol == "(":
             s.push(symbol)
         else:
             if s.isEmpty():
@@ -23,10 +25,10 @@ def paren_checker(symbols: str) -> bool:
         return True
     else:
         return False
-       
 
-if __name__ == '__main__':
-    test1 = '(()()()())'
-    test2 = '(((((((())'
+
+if __name__ == "__main__":
+    test1 = "(()()()())"
+    test2 = "(((((((())"
     print(paren_checker(test1))
     print(paren_checker(test2))

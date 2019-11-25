@@ -1,11 +1,13 @@
 import sys
-sys.path.append('..') # allow import of code from one directory level up
+
+sys.path.append("..")  # allow import of code from one directory level up
 
 from data_structures import Queue
 from typing import List
 import random
 
 random.seed(190818)
+
 
 class Printer(object):
     def __init__(self, pages_per_minute: float) -> None:
@@ -22,10 +24,9 @@ class Printer(object):
     def busy(self) -> bool:
         return self.current_task != None
 
-    def start_next(self, new_task: 'Task') -> None:
+    def start_next(self, new_task: "Task") -> None:
         self.current_task = new_task
-        self.time_remaining = new_task.get_pages() \
-                              * 60.0 / self.page_rate
+        self.time_remaining = new_task.get_pages() * 60.0 / self.page_rate
 
 
 class Task(object):
@@ -62,8 +63,7 @@ def simulation(num_seconds: int, pages_per_minute: int) -> None:
         # have just added a task, print_queue will not be empty
         if (not lab_printer.busy()) and (not print_queue.isEmpty()):
             next_task = print_queue.dequeue()
-            waiting_times.append( \
-                next_task.wait_time(current_second))
+            waiting_times.append(next_task.wait_time(current_second))
             lab_printer.start_next(next_task)
 
         # tick every second
@@ -71,10 +71,12 @@ def simulation(num_seconds: int, pages_per_minute: int) -> None:
 
     average_wait = sum(waiting_times) / len(waiting_times)
 
-    print("Average Wait: %6.2f secs, %1d tasks remaining."\
-        %(average_wait, print_queue.size()))
+    print(
+        "Average Wait: %6.2f secs, %1d tasks remaining."
+        % (average_wait, print_queue.size())
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     for _ in range(10):
         simulation(3600, 5)

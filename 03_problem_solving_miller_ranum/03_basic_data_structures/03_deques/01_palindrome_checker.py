@@ -1,11 +1,13 @@
 import sys
-sys.path.append('..') # allow import of code from one directory level up
+
+sys.path.append("..")  # allow import of code from one directory level up
 
 from data_structures import Deque
 
+
 def palindrome_checker(in_str: str) -> bool:
     d = Deque()
-    
+
     for char in in_str:
         d.add_rear(char)
 
@@ -20,6 +22,6 @@ def palindrome_checker(in_str: str) -> bool:
     return still_equal
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(palindrome_checker("abc"))
     print(palindrome_checker("aba"))

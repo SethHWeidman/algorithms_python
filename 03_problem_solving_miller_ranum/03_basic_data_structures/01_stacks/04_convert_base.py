@@ -1,10 +1,11 @@
 import sys
-sys.path.append('..') # allow import of code from one directory level up
+
+sys.path.append("..")  # allow import of code from one directory level up
 
 from data_structures import Stack
 
-def divide_by_base(decimal_number: int,
-                   base: int) -> str:
+
+def divide_by_base(decimal_number: int, base: int) -> str:
 
     digits = "0123456789ABCDEF"
 
@@ -19,8 +20,9 @@ def divide_by_base(decimal_number: int,
     while not remainder_stack.isEmpty():
         list_of_items.append(str(remainder_stack.pop()))
 
-    return ''.join(list_of_items)
+    return "".join(list_of_items)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     test_num = 233
     print(divide_by_base(233, 3))

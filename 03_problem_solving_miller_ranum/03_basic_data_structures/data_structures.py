@@ -1,5 +1,6 @@
 from typing import Any
 
+
 class Stack:
     def __init__(self) -> None:
         self.items = []
@@ -60,34 +61,34 @@ class Deque:
         return self.items.pop()
 
     def remove_rear(self) -> Any:
-        return self.items.pop(0)        
+        return self.items.pop(0)
 
     def size(self) -> int:
         return len(self.items)
 
     def __repr__(self):
-        return "Deque(" + str(self.items) + ")"        
+        return "Deque(" + str(self.items) + ")"
 
 
 class Node:
     def __init__(self, data: Any) -> None:
         self.data = data
-        self.next: 'Node' = None
+        self.next: "Node" = None
 
     def get_data(self) -> Any:
         return self.data
 
-    def get_next(self) -> 'Node':
+    def get_next(self) -> "Node":
         return self.next
 
     def set_data(self, data: Any) -> None:
         self.data = data
 
-    def set_next(self, next: 'Node') -> None:
+    def set_next(self, next: "Node") -> None:
         self.next = next
 
     def __repr__(self):
-        return "Node(" + str(self.data) + ")"  
+        return "Node(" + str(self.data) + ")"
 
 
 class UnorderedList:
@@ -143,7 +144,6 @@ class UnorderedList:
 
 
 class OrderedList(UnorderedList):
-
     def __init__(self) -> None:
         UnorderedList.__init__(self)
 
@@ -185,7 +185,7 @@ class OrderedList(UnorderedList):
             previous_node.set_next(temp)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # s = Stack()
     # print(s.isEmpty())
     # s.push(4)
@@ -203,7 +203,7 @@ if __name__ == '__main__':
     # print(q.isEmpty())
     # print(q.enqueue('dog'))
     # print(q.enqueue(4))
-    # print(q.dequeue())    
+    # print(q.dequeue())
     # q = Queue()
     # print(q.isEmpty())
 
@@ -211,20 +211,20 @@ if __name__ == '__main__':
     # print(d.add_rear(4))
     # print(d.add_rear('dog'))
     # print(d.add_front('cat'))
-    # print(d.add_front(True))    
+    # print(d.add_front(True))
     # print(d.size())
-    # print(d.is_empty())    
+    # print(d.is_empty())
     # print(d.add_rear(8.4))
     # print(d.remove_rear())
-    # print(d.remove_front())    
+    # print(d.remove_front())
 
     ul = UnorderedList()
     print(ul.add(31))
     print(ul.add(77))
     print(ul.add(17))
-    print(ul.add(93))    
+    print(ul.add(93))
     print(ul.add(26))
     print(ul.add(54))
 
     print(ul.length())
-    print(ul.search(17))    
+    print(ul.search(17))

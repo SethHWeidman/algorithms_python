@@ -2,9 +2,9 @@ from typing import Any, List
 
 
 def binary_search(a_list: List[Any], item: Any) -> bool:
-    '''
+    """
     Assumes a_list is sorted.
-    '''
+    """
     first = 0
     last = len(a_list) - 1
     found = False
@@ -22,6 +22,6 @@ def binary_search(a_list: List[Any], item: Any) -> bool:
     return found
 
 
-if __name__ == '__main__':
-    print(binary_search([1,2,3], 3))
-    print(binary_search([1,2,3], 4))
+if __name__ == "__main__":
+    print(binary_search([1, 2, 3], 3))
+    print(binary_search([1, 2, 3], 4))

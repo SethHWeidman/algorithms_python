@@ -1,6 +1,5 @@
-
 def int_to_base_str(n: int, base: int) -> str:
-    convert_string = '0123456789ABCDEF'
+    convert_string = "0123456789ABCDEF"
     print("Entering function")
     print(n, base)
     if n < base:
@@ -10,5 +9,6 @@ def int_to_base_str(n: int, base: int) -> str:
         print(n // base, base, convert_string[n % base])
         return int_to_base_str(n // base, base) + convert_string[n % base]
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print(int_to_base_str(11, 3))

@@ -1,8 +1,10 @@
 import sys
-sys.path.append('..') # allow import of code from one directory level up
 
-from string import digits          
+sys.path.append("..")  # allow import of code from one directory level up
+
+from string import digits
 from data_structures import Stack
+
 
 def eval_postfix_expr(postfix_expr: str) -> int:
 
@@ -26,19 +28,20 @@ def eval_postfix_expr(postfix_expr: str) -> int:
 
     return op_stack.pop()
 
+
 def do_math(token: str, operand1: int, operand2: int) -> int:
-    if token == '+':
+    if token == "+":
         return operand1 + operand2
-    if token == '-':
+    if token == "-":
         return operand1 - operand2
-    if token == '*':
+    if token == "*":
         return operand1 * operand2
-    if token == '/':
-        return operand1 / operand2                        
+    if token == "/":
+        return operand1 / operand2
 
 
-if __name__ == '__main__':
-    s1 = '4 5 6 * +'
-    s2 = '7 8 + 3 2 + /'
+if __name__ == "__main__":
+    s1 = "4 5 6 * +"
+    s2 = "7 8 + 3 2 + /"
     print(eval_postfix_expr(s1))
     print(eval_postfix_expr(s2))
