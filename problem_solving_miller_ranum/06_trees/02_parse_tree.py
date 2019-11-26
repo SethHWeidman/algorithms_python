@@ -1,4 +1,5 @@
 import algorithms_python.problem_solving_miller_ranum.data_structures as ds
+import operator
 
 
 def create_parse_tree(in_str: str) -> ds.BinaryTree:
@@ -29,3 +30,35 @@ def create_parse_tree(in_str: str) -> ds.BinaryTree:
             print("Invalid character")
 
     return new_tree
+
+
+operator_dict = {
+    "+": operator.add,
+    "-": operator.sub,
+    "*": operator.mul,
+    "/": operator.truediv,
+}
+
+
+def evaluate_parse_tree(tree: ds.BinaryTree) -> int:
+
+    left_child = tree.get_left_child()
+    right_child = tree.get_right_child()
+
+    root_op = tree.get_root_val()
+
+    if left_child and right_child:
+        op = operator_dict[root_op]
+        return op(evaluate_parse_tree(left_child), evaluate_parse_tree(right_child))
+
+    else:
+        return root_op
+
+
+def evaluate_expression(expr: str) -> int:
+    tree = create_parse_tree(expr)
+    return evaluate_parse_tree(tree)
+
+
+if __name__ == "__main__":
+    print(evaluate_expression("( 3 + ( 4 * 5 ) )"))
