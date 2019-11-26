@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Union
 
 
 class Stack:
@@ -185,13 +185,15 @@ class OrderedList(UnorderedList):
             previous_node.set_next(temp)
 
 
+Tree_Object = Union[int, str]
+
 class BinaryTree(object):
-    def __init__(self, val: int):
+    def __init__(self, val: Tree_Object):
         self.key = val
         self.left_child = None
         self.right_child = None
 
-    def insert_left_child(self, val: int) -> None:
+    def insert_left_child(self, val: Tree_Object) -> None:
         """
         Note: accepts an integer as a value (not a tree), and inserts value as the left child of the root.
         """
@@ -202,7 +204,7 @@ class BinaryTree(object):
             new_tree.left_child = self.left_child
             self.left_child = new_tree
 
-    def insert_right_child(self, val: int) -> None:
+    def insert_right_child(self, val: Tree_Object) -> None:
         """
         Note: accepts an integer as a value (not a tree), and inserts value as the right child of the root.
         """
@@ -219,8 +221,8 @@ class BinaryTree(object):
     def get_right_child(self) -> "BinaryTree":
         return self.right_child
 
-    def set_root_val(self, val: int) -> None:
+    def set_root_val(self, val: Tree_Object) -> None:
         self.key = val
 
-    def get_root_val(self) -> int:
+    def get_root_val(self) -> Tree_Object:
         return self.key
