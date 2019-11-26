@@ -227,3 +227,10 @@ class BinaryTree(object):
 
     def get_root_val(self) -> Tree_Object:
         return self.key
+
+    def preorder_traversal(self) -> None:
+        print(self.get_root_val())
+        if self.get_left_child():
+            self.preorder_traversal(self.get_left_child())
+        if self.get_right_child():
+            self.preorder_traversal(self.get_right_child())
