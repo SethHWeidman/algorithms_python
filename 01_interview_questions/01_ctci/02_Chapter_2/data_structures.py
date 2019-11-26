@@ -4,18 +4,18 @@ from typing import Any
 class Node:
     def __init__(self, data: Any = None) -> None:
         self.data = data
-        self.next: 'Node' = None
+        self.next: "Node" = None
 
     def get_data(self) -> Any:
         return self.data
 
-    def get_next(self) -> 'Node':
+    def get_next(self) -> "Node":
         return self.next
 
     def set_data(self, data: Any) -> None:
         self.data = data
 
-    def set_next(self, next: 'Node') -> None:
+    def set_next(self, next: "Node") -> None:
         self.next = next
 
     def __repr__(self):
@@ -23,7 +23,7 @@ class Node:
 
 
 class UnorderedList:
-    '''
+    """
     Unordered list (items are not sorted)
     Every element added:
         (self.head = old_head)
@@ -33,7 +33,8 @@ class UnorderedList:
         Head points to next.
         Last element has no "next".
 
-    '''
+    """
+
     def __init__(self) -> None:
         self.head: Node = None
 
@@ -76,9 +77,9 @@ class UnorderedList:
         return found
 
     def remove(self, item: Any) -> None:
-        '''
+        """
         Note: item must be a *value* not a "Node"
-        '''
+        """
         current_node = self.head
         previous_node = None
         found = False
@@ -101,10 +102,10 @@ class UnorderedList:
         while temp_last.get_next():
             temp_last = temp_last.get_next()
             out.append(temp_last)
-        return "head -> [" + ' '.join([str(x) for x in out]) + "]"
+        return "head -> [" + " ".join([str(x) for x in out]) + "]"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     u = UnorderedList()
     u.add(3)
     print(u.head)

@@ -1,7 +1,7 @@
 from data_structures import Node, UnorderedList
 
-def delete_middle_node(u: UnorderedList,
-                       n: Node) -> bool:
+
+def delete_middle_node(u: UnorderedList, n: Node) -> bool:
 
     if n is None or n.get_next() is None:
         return False  # failure
@@ -12,7 +12,7 @@ def delete_middle_node(u: UnorderedList,
     return True
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     u = UnorderedList()
     u.add(3)
     print(u.head)

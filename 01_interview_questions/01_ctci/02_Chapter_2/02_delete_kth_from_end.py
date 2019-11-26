@@ -1,13 +1,13 @@
 from copy import deepcopy
 from data_structures import Node, UnorderedList
 
+
 class Index:
     def __init__(self, val: int):
         self.val = val
 
-def kth_node_from_last(n: Node,
-                        k: int,
-                        i: Index) -> Node:
+
+def kth_node_from_last(n: Node, k: int, i: Index) -> Node:
     if n is None:
         return None
     node = kth_node_from_last(n.next, k, i)
@@ -16,10 +16,12 @@ def kth_node_from_last(n: Node,
         return n
     return node
 
+
 def remove_kth_from_last(u: UnorderedList, k: int) -> Node:
     i = Index(0)
     kth_to_last_node = kth_node_from_last(u.head, k, i)
     return u.remove(kth_to_last_node.get_data())
+
 
 def remove_kth_from_last_pointers(u: UnorderedList, k: int) -> UnorderedList:
     p1 = u.head
@@ -37,7 +39,8 @@ def remove_kth_from_last_pointers(u: UnorderedList, k: int) -> UnorderedList:
 
     return u.remove(p2.get_data())
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     u = UnorderedList()
     u.add(3)
     print(u.head)

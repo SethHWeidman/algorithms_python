@@ -187,6 +187,7 @@ class OrderedList(UnorderedList):
 
 Tree_Object = Union[int, str]
 
+
 class BinaryTree(object):
     def __init__(self, val: Tree_Object):
         self.key = val

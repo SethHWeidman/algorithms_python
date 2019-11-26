@@ -1,11 +1,10 @@
-
 from data_structures import Node, UnorderedList
 
 
 def delete_duplicates(u: UnorderedList) -> None:
-    '''
+    """
     Runs in O(N) time
-    '''
+    """
     d = {}
     previous = Node()
     node = u.head
@@ -19,9 +18,9 @@ def delete_duplicates(u: UnorderedList) -> None:
 
 
 def delete_duplicates_no_buffer(u: UnorderedList) -> None:
-    '''
+    """
     Runs in O(N^2) time, but O(1) space
-    '''
+    """
     current = u.head
     while current is not None:
         runner = current
@@ -33,7 +32,7 @@ def delete_duplicates_no_buffer(u: UnorderedList) -> None:
         current = current.get_next()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     u = UnorderedList()
     u.add(3)
     print(u.head)
@@ -44,6 +43,6 @@ if __name__ == '__main__':
     u.add(5)
     print(u)
     u.add(3)
-    print(u)        
+    print(u)
     delete_duplicates_no_buffer(u)
     print(u)

@@ -1,14 +1,14 @@
 from data_structures import Node, UnorderedList
 
-def partition_linked_list(u: UnorderedList,
-                          x: int) -> Node:
 
-    '''
+def partition_linked_list(u: UnorderedList, x: int) -> Node:
+
+    """
     Passes in an unordered list.
     Returns the head of a list that has been "paritioned" around x
     Input:  3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 (partition: 5)
     Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
-    '''
+    """
 
     before_start = None
     before_end = None
@@ -42,7 +42,7 @@ def partition_linked_list(u: UnorderedList,
     return before_start
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     u = UnorderedList()
     u.add(3)
     u.add(5)
@@ -56,4 +56,3 @@ if __name__ == '__main__':
     while new_head:
         print(new_head)
         new_head = new_head.get_next()
-
